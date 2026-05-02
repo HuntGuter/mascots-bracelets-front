@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
@@ -15,10 +16,17 @@ export function Header() {
       <nav className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-4">
         <Link
           href="/"
-          className="font-heading text-base font-semibold tracking-tight"
+          className="flex items-center gap-3"
           aria-label="Mascots Bracelets home"
         >
-          Mascots Bracelets
+          <Image
+            src="/logo_new.avif"
+            alt="Mascots Bracelets"
+            width={128}
+            height={40}
+            priority
+            className="h-9 w-auto"
+          />
         </Link>
 
         <div className="hidden items-center gap-1 md:flex">
