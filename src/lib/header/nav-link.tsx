@@ -3,7 +3,7 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 
 import styles from "@/components/layout/header.module.scss";
-import type { NavigationItem } from "../../types/types";
+import type { NavigationItem } from "@/types/types";
 
 type NavLinkProps = {
   item: NavigationItem;

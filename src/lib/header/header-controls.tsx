@@ -11,8 +11,23 @@ export function HeaderControlsLeft() {
       <MobileMenu />
 
       <div className={styles.desktopUtility}>
-        <UtilitySelect label="EN" />
-        <UtilitySelect label="USD" />
+        <UtilitySelect
+          ariaLabel="Select language"
+          value="en"
+          options={[
+            { label: "EN", value: "en" },
+            { label: "UA", value: "uk" },
+          ]}
+        />
+        <UtilitySelect
+          ariaLabel="Select currency"
+          value="usd"
+          options={[
+            { label: "USD", value: "usd" },
+            { label: "EUR", value: "eur" },
+            { label: "UAH", value: "uah" },
+          ]}
+        />
       </div>
     </div>
   );

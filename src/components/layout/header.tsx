@@ -24,6 +24,7 @@ export function Header() {
         <DesktopNavigation
           leftItems={leftNavigation}
           rightItems={rightNavigation}
+          allItems={navigation}
           pathname={pathname}
         />
 
