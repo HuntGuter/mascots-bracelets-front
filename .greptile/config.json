@@ -1,0 +1,7 @@
+{
+  "strictness": 2,
+  "commentTypes": ["logic", "security", "performance", "style"],
+  "triggerOnUpdates": true,
+  "statusCheck": true,
+  "ignorePatterns": "node_modules/**\n.next/**\npublic/**\npnpm-lock.yaml"
+}

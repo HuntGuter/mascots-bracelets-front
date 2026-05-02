@@ -1,0 +1,35 @@
+{
+  "files": [
+    {
+      "path": "AGENTS.md",
+      "description": "Repository-specific agent and Next.js version instructions."
+    },
+    {
+      "path": "package.json",
+      "description": "Framework, package manager, and script definitions."
+    },
+    {
+      "path": "next.config.ts",
+      "description": "Next.js configuration, including remote image patterns."
+    },
+    {
+      "path": "tsconfig.json",
+      "description": "TypeScript strictness, path aliases, and compiler behavior."
+    },
+    {
+      "path": "src/types/product.ts",
+      "description": "Product data contract used by product data and UI components.",
+      "scope": ["src/data/**", "src/components/products/**"]
+    },
+    {
+      "path": "src/data/products.ts",
+      "description": "Static product catalog data.",
+      "scope": ["src/data/**", "src/components/products/**"]
+    },
+    {
+      "path": "src/components/products/product-card.tsx",
+      "description": "Main product card renderer using Next Image.",
+      "scope": ["src/data/**", "src/components/products/**"]
+    }
+  ]
+}
