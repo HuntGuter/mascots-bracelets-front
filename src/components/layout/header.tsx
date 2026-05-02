@@ -1,45 +1,38 @@
-import Image from "next/image";
-import Link from "next/link";
+"use client";
 
-import { Button } from "@/components/ui/button";
+import { usePathname } from "next/navigation";
 
-const navigation = [
-  { href: "/shop", label: "Shop" },
-  { href: "/about", label: "About" },
-  { href: "/faq", label: "FAQ" },
-  { href: "/contact", label: "Contact" },
-];
+import { DesktopNavigation } from "@/lib/header/desktop-navigation";
+import {
+  HeaderControlsLeft,
+  HeaderControlsRight,
+} from "@/lib/header/header-controls";
+import { Logo } from "@/lib/header/logo";
+import { navigation } from "@/constants/navigation";
+import styles from "./header.module.scss";
 
 export function Header() {
-  return (
-    <header className="sticky top-0 z-40 bg-primary/55 backdrop-blur-xl shadow-[0_24px_70px_-42px_var(--foreground)]">
-      <nav className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-4">
-        <Link
-          href="/"
-          className="flex items-center gap-3"
-          aria-label="Mascots Bracelets home"
-        >
-          <Image
-            src="/logo_new.avif"
-            alt="Mascots Bracelets"
-            width={128}
-            height={40}
-            priority
-            className="h-9 w-auto"
-          />
-        </Link>
+  const pathname = usePathname();
+  const leftNavigation = navigation.slice(0, 3);
+  const rightNavigation = navigation.slice(3);
 
-        <div className="hidden items-center gap-1 md:flex">
-          {navigation.map((item) => (
-            <Button key={item.href} variant="ghost" asChild>
-              <Link href={item.href}>{item.label}</Link>
-            </Button>
-          ))}
+  return (
+    <header className={styles.header}>
+      <nav className={styles.nav}>
+        <HeaderControlsLeft />
+
+        <DesktopNavigation
+          leftItems={leftNavigation}
+          rightItems={rightNavigation}
+          allItems={navigation}
+          pathname={pathname}
+        />
+
+        <div className={styles.mobileLogo}>
+          <Logo />
         </div>
 
-        <Button asChild>
-          <Link href="/shop">Shop now</Link>
-        </Button>
+        <HeaderControlsRight />
       </nav>
     </header>
   );
