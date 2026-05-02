@@ -19,7 +19,6 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { ProductCard } from "@/components/products/product-card";
 import { products } from "@/data/products";
 
 export const metadata: Metadata = {
@@ -151,13 +150,13 @@ const faqJsonLd = {
 
 export default function HomePage() {
   return (
-    <main>
+    <main className="homepage-gradient">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
 
-      <section className="mx-auto grid min-h-[calc(100svh-4rem)] max-w-6xl items-center gap-10 px-4 py-12 md:grid-cols-[1.02fr_0.98fr] md:py-16">
+      <section className="mx-auto grid min-h-[calc(100svh-4rem)] max-w-6xl items-center gap-10 px-4 py-12 md:grid-cols-[1.02fr_0.98fr] md:pt-20 md:pb-16">
         <div className="max-w-2xl space-y-7">
           <Badge variant="secondary" className="h-7 px-3 text-sm">
             Handcrafted rune bracelets
@@ -215,22 +214,6 @@ export default function HomePage() {
 
       <section className="mx-auto max-w-6xl px-4 pb-20">
         <SectionIntro
-          eyebrow="Featured products"
-          title="Start with the core collection."
-          description="A focused selection of bracelets built around protection, prosperity, and personal symbolism."
-          actionHref="/shop"
-          actionLabel="View all"
-        />
-
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {featuredProducts.map((product) => (
-            <ProductCard key={product.id} product={product} />
-          ))}
-        </div>
-      </section>
-
-      <section className="mx-auto max-w-6xl px-4 pb-20">
-        <SectionIntro
           eyebrow="Collections"
           title="Choose by symbol, stave, or intention."
           description="The live collection includes single runes, mascot bracelets, protection staves, prosperity staves, love staves, luck staves, custom bracelets, and keychains."
@@ -268,7 +251,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="border-y border-border/70 bg-card/60">
+      <section className="border-y border-border/50 bg-background/45 backdrop-blur-sm">
         <div className="mx-auto grid max-w-6xl gap-10 px-4 py-20 lg:grid-cols-[0.9fr_1.1fr]">
           <div className="space-y-4">
             <Badge variant="secondary" className="h-7 px-3 text-sm">
@@ -343,15 +326,15 @@ export default function HomePage() {
       </section>
 
       <section className="mx-auto max-w-6xl px-4 pb-20">
-        <div className="grid gap-5 rounded-lg border border-border bg-foreground p-6 text-background md:grid-cols-[0.9fr_1.1fr] md:p-8">
+        <div className="grid gap-5 rounded-lg border-2 border-foreground bg-primary p-6 text-foreground shadow-[10px_10px_0_0_var(--foreground)] md:grid-cols-[0.9fr_1.1fr] md:p-8">
           <div className="space-y-4">
-            <div className="flex size-11 items-center justify-center rounded-lg bg-primary text-foreground">
+            <div className="flex size-11 items-center justify-center rounded-lg bg-background text-foreground">
               <Heart className="size-5" />
             </div>
             <h2 className="text-3xl font-semibold tracking-tight">
               Built for trust, not impulse.
             </h2>
-            <p className="leading-7 text-background/75">
+            <p className="leading-7 text-foreground/75">
               Product choices are grounded in clear materials, symbolic context,
               and custom support when you need something more personal.
             </p>
@@ -360,10 +343,10 @@ export default function HomePage() {
           <div className="grid content-center gap-3 sm:grid-cols-2">
             {trustItems.map((item) => (
               <div key={item} className="flex items-center gap-3">
-                <div className="flex size-7 shrink-0 items-center justify-center rounded-md bg-primary text-foreground">
+                <div className="flex size-7 shrink-0 items-center justify-center rounded-md bg-background text-foreground">
                   <Check className="size-4" />
                 </div>
-                <span className="text-sm text-background/85">{item}</span>
+                <span className="text-sm text-foreground/85">{item}</span>
               </div>
             ))}
           </div>
